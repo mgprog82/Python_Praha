@@ -62,5 +62,6 @@ txt2.place(x=150, y=50)
 Bt1 = Button(ws,text='Посчитать', command=isChecked1)
 Bt1.place(x=300, y = 300)
 
+sdfhkjsdhfkjhsdkjfhsdkjfhkjsdhfkjsdhkfjhsdkjfhksdjhkhksfhskdfhksdjfh
 
 ws.mainloop()
