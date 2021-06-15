@@ -4,7 +4,7 @@ import math
 
 #f,mndfg,mnfd,ng
 ws = Tk()
-ws.title('Калькулятор v3')
+ws.title('Калькулятор v3.1')
 ws.geometry('600x400')
 f_top=Frame(ws)
 
@@ -14,22 +14,45 @@ Lab2 = Label(ws,text="Введите диаметр в см.:")
 Lab2.place(x=10, y=50)
 Lab3 = Label(ws,text="Площадь круга.:")
 Lab3.place(x=10, y=90)
+
 Lab4 = Label(ws,text="Обвод круга.:")
 Lab4.place(x=10, y=120)
 
 
 
 def show_entry_fields():
-    print("Введите радиус в см.: %s\nВведите диаметр в см.: %s" % (e1.get(), e2.get()))
-    radius = e1.get()
-    diametr = e2.get()
+    #print("Введите радиус в см.: %s\nВведите диаметр в см.: %s" % (txt1.get(), txt2.get()))
+
+    radius = txt1.get()
+    radius = float(radius)
+
+    if radius>0:
+
+        formulaS = (math.pi)*(radius**2)
+        print(formulaS)
+        Lab3_ot = Label(ws,text=formulaS)
+        Lab3_ot.place(x=110, y=90)
+        formulaP = (math.pi)*2*(radius)
+        Lab4_ot = Label(ws,text=formulaP)
+        Lab4_ot.place(x=110, y=120)
+    else:
+        Lab3_ot = Label(ws,text="Введите положительное значение радиуса")
+        Lab3_ot.place(x=110, y=90)
+        Lab4_ot = Label(ws,text="Введите положительное значение радиуса")
+        Lab4_ot.place(x=110, y=120)
+
 
 def isChecked1():
     if cb1.get() == 1:
         txt1['state'] = NORMAL
+        Ch2['state'] = DISABLED
+
+
+
 
     elif cb1.get() == 0:
         txt1['state'] = DISABLED
+        Ch2['state'] = NORMAL
 
     else:
         messagebox.showerror('Ошибка!', 'Введите еще раз!')
@@ -38,9 +61,11 @@ def isChecked1():
 def isChecked2():
     if cb2.get() == 1:
         txt2['state'] = NORMAL
+        Ch1['state'] = DISABLED
 
     elif cb2.get() == 0:
         txt2['state'] = DISABLED
+        Ch1['state'] = NORMAL
 
     else:
         messagebox.showerror('Ошибка!', 'Введите еще раз!')
@@ -60,7 +85,10 @@ txt1.place(x=150, y=20)
 txt2 = Entry(ws,width=20,state=DISABLED)
 txt2.place(x=150, y=50)
 
-Bt1 = Button(ws,text='Посчитать', command=isChecked1)
+
+
+
+Bt1 = Button(ws,text='Посчитать', command=show_entry_fields)
 Bt1.place(x=300, y = 300)
 
 
