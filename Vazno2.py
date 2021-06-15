@@ -1,7 +1,7 @@
 from tkinter import *
 import tkinter as tk
 import math
-
+qwerty
 ws = Tk()
 ws.title('Калькулятор v3')
 ws.geometry('600x400')
