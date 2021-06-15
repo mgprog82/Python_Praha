@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 import math
 
+#f,mndfg,mnfd,ng
 ws = Tk()
 ws.title('Калькулятор v3')
 ws.geometry('600x400')
@@ -62,6 +63,5 @@ txt2.place(x=150, y=50)
 Bt1 = Button(ws,text='Посчитать', command=isChecked1)
 Bt1.place(x=300, y = 300)
 
-sdfhkjsdhfkjhsdkjfhsdkjfhkjsdhfkjsdhkfjhsdkjfhksdjhkhksfhskdfhksdjfh
 
 ws.mainloop()
