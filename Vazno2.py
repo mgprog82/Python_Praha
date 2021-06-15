@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 import math
 qwerty
+#sdfnsd,mnf,smdnf,s
 ws = Tk()
 ws.title('Калькулятор v3')
 ws.geometry('600x400')
