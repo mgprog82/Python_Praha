@@ -2,10 +2,25 @@ from tkinter import *
 import tkinter as tk
 import math
 
+
 ws = Tk()
 ws.title('Калькулятор v3.1')
 ws.geometry('600x400')
 f_top=Frame(ws)
+mainmenu = Menu(ws)
+ws.config(menu = mainmenu)
+
+filemenu = Menu(mainmenu, tearoff = 0)
+filemenu.add_command(label='Open')
+filemenu.add_command(label='Exit')
+
+filehelp = Menu(mainmenu, tearoff = 0)
+filehelp.add_command(label='Help')
+
+mainmenu.add_cascade(label  = "File", menu = filemenu)
+mainmenu.add_cascade(label  = "FAQ", menu = filehelp)
+
+
 
 Lab1 = Label(ws,text="Введите радиус в см.:")
 Lab1.place(x=10, y=20)
