@@ -5,6 +5,7 @@ import math
 #123
 #izmenila
 #ja tozhe2
+#ura!!!
 ws = Tk()
 ws.title('Калькулятор v3.1')
 ws.geometry('600x400')
