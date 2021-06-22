@@ -41,22 +41,56 @@ def show_entry_fields():
     #print("Введите радиус в см.: %s\nВведите диаметр в см.: %s" % (txt1.get(), txt2.get()))
 
     radius = txt1.get()
+    diametr = txt2.get()
+
+    if radius =='':
+        radius = 0
+
+
     radius = float(radius)
 
-    if radius>0:
+    if diametr =='':
+        diametr = 0
+    diametr = float(diametr)
 
-        formulaS = (math.pi)*(radius**2)
-        print(formulaS)
-        Lab3_ot = Label(ws,text=formulaS)
-        Lab3_ot.place(x=110, y=90)
-        formulaP = (math.pi)*2*(radius)
-        Lab4_ot = Label(ws,text=formulaP)
-        Lab4_ot.place(x=110, y=120)
-    else:
-        Lab3_ot = Label(ws,text="Введите положительное значение радиуса")
-        Lab3_ot.place(x=110, y=90)
-        Lab4_ot = Label(ws,text="Введите положительное значение радиуса")
-        Lab4_ot.place(x=110, y=120)
+
+    if cb1.get() == 1:
+        if radius>0:
+            formulaS = (math.pi)*(radius**2)
+            formulaS = format(formulaS,'2f')
+            Lab3_ot = Label(ws,text=formulaS)
+            Lab3_ot.place(x=110, y=90)
+            formulaP = (math.pi)*2*(radius)
+            formulaP = format(formulaP,'2f')
+            Lab4_ot = Label(ws,text=formulaP)
+            Lab4_ot.place(x=110, y=120)
+
+        else:
+            Lab3_ot = Label(ws,text="Введите положительное значение радиуса")
+            Lab3_ot.place(x=110, y=90)
+            Lab4_ot = Label(ws,text="Введите положительное значение радиуса")
+            Lab4_ot.place(x=110, y=120)
+
+
+    if cb2.get() == 1:
+
+        if diametr>0:
+
+            formulaS = (math.pi)*((diametr/2)**2)
+            formulaS = format(formulaS,'2f')
+            Lab3_ot = Label(ws,text=formulaS)
+            Lab3_ot.place(x=110, y=90)
+            formulaP = (math.pi)*(diametr)
+            formulaP = format(formulaP,'2f')
+            Lab4_ot = Label(ws,text=formulaP)
+            Lab4_ot.place(x=110, y=120)
+
+        else:
+            Lab3_ot = Label(ws,text="Введите положительное значение диаметра")
+            Lab3_ot.place(x=110, y=90)
+            Lab4_ot = Label(ws,text="Введите положительное значение диаметра")
+            Lab4_ot.place(x=110, y=120)
+
 
 
 def isChecked1():
@@ -65,9 +99,8 @@ def isChecked1():
         Ch2['state'] = DISABLED
 
 
-
-
     elif cb1.get() == 0:
+        txt1.delete(0,END)
         txt1['state'] = DISABLED
         Ch2['state'] = NORMAL
 
@@ -81,6 +114,7 @@ def isChecked2():
         Ch1['state'] = DISABLED
 
     elif cb2.get() == 0:
+        txt2.delete(0,END)
         txt2['state'] = DISABLED
         Ch1['state'] = NORMAL
 
@@ -89,8 +123,6 @@ def isChecked2():
 
 cb1 = IntVar()
 cb2 = IntVar()
-
-
 
 Ch1=Checkbutton(ws, text="Радиус", variable=cb1, onvalue=1, offvalue=0, command=isChecked1)
 Ch1.place(x=280, y=20)
